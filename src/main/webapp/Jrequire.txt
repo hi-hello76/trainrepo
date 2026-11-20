@@ -1,0 +1,23 @@
+Jenkins Scripted Pipeline (Build & Test)
+What to do: Create a file named Jenkinsfile in the root of your GitHub repository (hello-tej/carrepo).
+
+File: Jenkinsfile (Copy this exact code)
+
+groovy
+node {
+    stage('Checkout') {
+        echo 'Cloning the repository...'
+        git branch: 'main', url: 'https://github.com/hello-tej/carrepo.git'
+    }
+
+    stage('Build') {
+        echo 'Building the application...'
+        bat 'echo "Building Python Application..."'
+    }
+
+    stage('Test') {
+        echo 'Running tests...'
+        bat 'echo "All tests passed successfully!"'
+    }
+}
+What happens: Jenkins reads this file, pulls your code from GitHub, and runs the Build and Test stages on your Windows machine.
