@@ -102,3 +102,17 @@ kubectl scale deployment nginx-deployment --replicas=4
 # 6. Verify
 kubectl get pods
 kubectl get svc
+
+
+minikube start
+kubectl create deployment nginx-deployment --image=nginx
+kubectl expose deployment nginx-deployment --type=NodePort --port=80
+kubectl expose deployment nginx-deployment --type=NodePort --port=80
+kubectl scale deployment nginx-deployment --replicas=4
+kubectl get pods
+kubectl get services
+kubectl delete service nginx-deployment
+kubectl delete deployment nginx-deployment
+minikube stop
+
+
